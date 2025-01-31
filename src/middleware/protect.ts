@@ -13,6 +13,5 @@ export function authMiddleware(req: NextRequest) {
     return NextResponse.json({ message: "Invalid token" }, { status: 401 });
   }
 
-  // Attach user ID to request
   (req as any).userId = (decoded as any).userId;
 }

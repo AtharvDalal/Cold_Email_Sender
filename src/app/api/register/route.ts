@@ -29,7 +29,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Check if user already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       console.log("❌ User already exists:", existingUser);
@@ -39,7 +38,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Create new user
     const newUser = new User({ username, password });
     console.log("✅ New User Object Before Save:", newUser);
 

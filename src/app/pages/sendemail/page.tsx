@@ -32,7 +32,6 @@ const SendEmail = () => {
       return;
     }
 
-    // Convert resume to base64 if provided
     if (resume) {
       const reader = new FileReader();
       reader.onloadend = async () => {

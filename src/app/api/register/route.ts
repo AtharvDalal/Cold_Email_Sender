@@ -4,7 +4,7 @@ import { connectDB } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
-    await connectDB(); // Connect to MongoDB
+    await connectDB();
 
     const body = await req.json();
     console.log("✅ Request Body:", body);

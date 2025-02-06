@@ -22,7 +22,7 @@ export default function RootLayout({
           <Link href="/pages/login" className="mr-4">
             Login
           </Link>
-          <Link href="/pages/send-email">Send Email</Link>
+          <Link href="/pages/sendemail">Send Email</Link>
         </nav>
         <main className="p-6">{children}</main>
       </body>

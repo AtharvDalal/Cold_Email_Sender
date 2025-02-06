@@ -50,7 +50,7 @@ export async function POST(req: Request) {
           { status: 404 }
         );
       }
-      userFullname = user.fullname; // Use fullname from database
+      userFullname = user.fullname;
     }
 
     console.log("Saving email history:", {

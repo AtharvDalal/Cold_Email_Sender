@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const SendEmail = () => {
   const [fullname, setFullname] = useState("");
@@ -76,74 +77,99 @@ const SendEmail = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h1 className="text-xl font-bold mb-4">Send Email to HR</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="fullname">Full Name</label>
-          <input
-            type="text"
-            id="fullname"
-            value={fullname}
-            onChange={(e) => setFullname(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="phone">Phone Number</label>
-          <input
-            type="text"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="linkedinId">LinkedIn ID</label>
-          <input
-            type="text"
-            id="linkedinId"
-            value={linkedinId}
-            onChange={(e) => setLinkedinId(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="resume">Resume (Optional)</label>
-          <input
-            type="file"
-            id="resume"
-            onChange={(e) =>
-              setResume(e.target.files ? e.target.files[0] : null)
-            }
-            className="w-full p-2 border rounded"
-          />
-        </div>
-        <div>
-          <label htmlFor="hrEmail">HR Email</label>
-          <input
-            type="email"
-            id="hrEmail"
-            value={hrEmail}
-            onChange={(e) => setHrEmail(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded"
-        >
-          Send Email
-        </button>
+    <div className=" relative flex items-center justify-center min-h-screen  to-black text-white p-6">
+      <BackgroundBeams />
+      <div className="w-full max-w-md p-6  bg-opacity-30 rounded-lg shadow-lg backdrop-blur-md">
+        <h1 className="text-2xl font-bold mb-4 text-center text-teal-400">
+          Send Email to HR
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="fullname" className="block text-sm font-medium">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="fullname"
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
+              className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-teal-400"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium">
+              Phone Number
+            </label>
+            <input
+              type="text"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-teal-400"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="linkedinId" className="block text-sm font-medium">
+              LinkedIn ID
+            </label>
+            <input
+              type="text"
+              id="linkedinId"
+              value={linkedinId}
+              onChange={(e) => setLinkedinId(e.target.value)}
+              className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-teal-400"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="resume" className="block text-sm font-medium">
+              Resume (Optional)
+            </label>
+            <input
+              type="file"
+              id="resume"
+              onChange={(e) =>
+                setResume(e.target.files ? e.target.files[0] : null)
+              }
+              className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-teal-400"
+            />
+          </div>
+          <div>
+            <label htmlFor="hrEmail" className="block text-sm font-medium">
+              HR Email
+            </label>
+            <input
+              type="email"
+              id="hrEmail"
+              value={hrEmail}
+              onChange={(e) => setHrEmail(e.target.value)}
+              className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-teal-400"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition"
+          >
+            Send Email
+          </button>
 
-        {error && <p className="text-red-500">{error}</p>}
-        {success && <p className="text-green-500">{success}</p>}
-      </form>
+          {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+          {success && (
+            <p className="text-green-400 text-sm text-center">{success}</p>
+          )}
+
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 rounded-lg transition"
+          >
+            Go To Home
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

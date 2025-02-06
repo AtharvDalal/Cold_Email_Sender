@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -39,35 +40,36 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="relative flex justify-center items-center h-screen bg-gray-900">
+      <div className="absolute inset-0">
+        <BackgroundBeams />
+      </div>
       <form
+        className="relative z-10 p-6 bg-gray-800/90 backdrop-blur-sm shadow-lg rounded-lg w-96"
         onSubmit={handleSubmit}
-        className="p-6 bg-white shadow-lg rounded-lg w-96"
       >
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Register</h2>
         <input
           type="text"
           name="username"
           placeholder="Full Name"
           onChange={handleChange}
-          className="w-full p-2 border rounded mb-2"
+          className="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
-
         <input
           type="password"
           name="password"
           placeholder="Password"
           onChange={handleChange}
-          className="w-full p-2 border rounded mb-2"
+          className="w-full p-2 border border-gray-600 bg-gray-700 text-white rounded mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
-
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-400 text-sm mb-2">{error}</p>}
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white p-2 rounded"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded transition duration-200"
         >
           {loading ? "Registering..." : "Register"}
         </button>
